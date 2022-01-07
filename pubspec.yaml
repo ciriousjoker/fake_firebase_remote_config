@@ -1,5 +1,5 @@
 name: fake_firebase_remote_config
-description: Fake Firebase Remote Config for use in Flutter testing.
+description: Fake Firebase Remote Config for use during Flutter unit & widget tests.
 version: 1.0.0
 homepage: https://philippbauer.me/
 repository: https://github.com/CiriousJoker/fake_firebase_remote_config

@@ -6,6 +6,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart'; // ignore: import_of_legacy_library_into_null_safe
 import 'package:flutter/foundation.dart';
 
+/// Fake implementation of [RemoteConfig] for testing.
 class FakeRemoteConfig with ChangeNotifier implements RemoteConfig {
   final _mocked = <String, RemoteConfigValue>{};
   var _data = <String, RemoteConfigValue>{};
@@ -90,6 +91,8 @@ class FakeRemoteConfig with ChangeNotifier implements RemoteConfig {
     return Future.value();
   }
 
+  /// Load mocked data into the [FakeRemoteConfig].
+  /// You still need to call [fetchAndActivate] to activate the data.
   void loadMockData(Map<String, dynamic> data) {
     data.forEach((key, value) {
       _mocked[key] = RemoteConfigValue(const Utf8Encoder().convert(value.toString()), ValueSource.valueRemote);
