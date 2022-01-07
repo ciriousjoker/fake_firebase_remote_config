@@ -1,0 +1,22 @@
+name: fake_firebase_remote_config
+description: Fake Firebase Remote Config for use in Flutter testing.
+version: 1.0.0
+homepage: https://philippbauer.me/
+repository: https://github.com/CiriousJoker/fake_firebase_remote_config
+
+environment:
+  sdk: ">=2.15.1 <3.0.0"
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  firebase_core: any
+  firebase_remote_config: ">=0.9.0-dev.0 <2.0.0"
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  lint: ^1.8.1
+
+flutter:
