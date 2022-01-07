@@ -1,6 +1,5 @@
-import 'package:flutter_test/flutter_test.dart';
-
 import 'package:fake_firebase_remote_config/src/fake_firebase_remote_config_instance.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('Can store mocked values', () async {
