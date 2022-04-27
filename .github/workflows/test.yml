@@ -1,0 +1,26 @@
+name: test
+
+on: [push]
+
+jobs:
+  test:
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "2.x"
+          channel: "stable"
+          cache: true
+          cache-key: flutter # optional, change this to force refresh cache
+          cache-path: ${{ runner.tool_cache }}/flutter # optional, change this to specify the cache path
+
+      - name: Analyze
+        run: flutter analyze --fatal-infos
+
+      - name: Get Packages
+        run: flutter pub get
+
+      - run: flutter test --coverage --reporter expanded
