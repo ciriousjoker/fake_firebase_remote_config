@@ -6,8 +6,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart'; // ignore: import_of_legacy_library_into_null_safe
 import 'package:flutter/foundation.dart';
 
-/// Fake implementation of [RemoteConfig] for testing.
-class FakeRemoteConfig with ChangeNotifier implements RemoteConfig {
+/// Fake implementation of [FirebaseRemoteConfig] for testing.
+class FakeRemoteConfig with ChangeNotifier implements FirebaseRemoteConfig {
   final _mocked = <String, RemoteConfigValue>{};
   var _data = <String, RemoteConfigValue>{};
   final _defaults = <String, RemoteConfigValue>{};
