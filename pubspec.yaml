@@ -9,8 +9,8 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
-  firebase_core: any
-  firebase_remote_config: ">=0.9.0-dev.0 <2.0.0"
+  firebase_core: ">= 0.0.1 <2.0.0"
+  firebase_remote_config: ">=0.9.0-dev.0 <3.0.0"
   flutter:
     sdk: flutter
 
