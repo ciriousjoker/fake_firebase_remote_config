@@ -45,22 +45,30 @@ class FakeRemoteConfig with ChangeNotifier implements FirebaseRemoteConfig {
 
   @override
   bool getBool(String key) {
-    return _data[key]?.asBool() ?? _defaults[key]?.asBool() ?? RemoteConfigValue.defaultValueForBool;
+    return _data[key]?.asBool() ??
+        _defaults[key]?.asBool() ??
+        RemoteConfigValue.defaultValueForBool;
   }
 
   @override
   double getDouble(String key) {
-    return _data[key]?.asDouble() ?? _defaults[key]?.asDouble() ?? RemoteConfigValue.defaultValueForDouble;
+    return _data[key]?.asDouble() ??
+        _defaults[key]?.asDouble() ??
+        RemoteConfigValue.defaultValueForDouble;
   }
 
   @override
   int getInt(String key) {
-    return _data[key]?.asInt() ?? _defaults[key]?.asInt() ?? RemoteConfigValue.defaultValueForInt;
+    return _data[key]?.asInt() ??
+        _defaults[key]?.asInt() ??
+        RemoteConfigValue.defaultValueForInt;
   }
 
   @override
   String getString(String key) {
-    return _data[key]?.asString() ?? _defaults[key]?.asString() ?? RemoteConfigValue.defaultValueForString;
+    return _data[key]?.asString() ??
+        _defaults[key]?.asString() ??
+        RemoteConfigValue.defaultValueForString;
   }
 
   @override
@@ -69,7 +77,8 @@ class FakeRemoteConfig with ChangeNotifier implements FirebaseRemoteConfig {
   }
 
   @override
-  RemoteConfigFetchStatus get lastFetchStatus => RemoteConfigFetchStatus.success;
+  RemoteConfigFetchStatus get lastFetchStatus =>
+      RemoteConfigFetchStatus.success;
 
   @override
   DateTime lastFetchTime = DateTime.fromMicrosecondsSinceEpoch(0);
@@ -86,7 +95,10 @@ class FakeRemoteConfig with ChangeNotifier implements FirebaseRemoteConfig {
   @override
   Future<void> setDefaults(Map<String, dynamic> defaultParameters) {
     defaultParameters.forEach((key, value) {
-      _defaults[key] = RemoteConfigValue(const Utf8Encoder().convert(value.toString()), ValueSource.valueDefault);
+      _defaults[key] = RemoteConfigValue(
+        const Utf8Encoder().convert(value.toString()),
+        ValueSource.valueDefault,
+      );
     });
     return Future.value();
   }
@@ -95,7 +107,10 @@ class FakeRemoteConfig with ChangeNotifier implements FirebaseRemoteConfig {
   /// You still need to call [fetchAndActivate] to activate the data.
   void loadMockData(Map<String, dynamic> data) {
     data.forEach((key, value) {
-      _mocked[key] = RemoteConfigValue(const Utf8Encoder().convert(value.toString()), ValueSource.valueRemote);
+      _mocked[key] = RemoteConfigValue(
+        const Utf8Encoder().convert(value.toString()),
+        ValueSource.valueRemote,
+      );
     });
   }
 
