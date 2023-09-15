@@ -1,3 +1,8 @@
+## 2.0.0
+
+- Updated for `firebase_remote_config: 4.2.5`
+- Added support for Flutter 3
+
 ## 1.0.3
 
 - Updated for `firebase_remote_config: 3.0.6`
