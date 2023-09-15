@@ -47,9 +47,10 @@ await tester.pumpWidget(
 
 | firebase_remote_config | fake_firebase_remote_config |
 | ---------------------- | --------------------------- |
-| >=0.9.0-dev.0          | 1.0.x                       |
+| >=0.9.0-dev.0 <4.0.0   | 1.0.x                       |
+| >=4.0.0 <5.0.0         | 2.0.x                       |
 
-Last updated for `firebase_remote_config: 3.0.6`.
+Last updated for `firebase_remote_config: 4.2.5`.
 
 ## Features and bugs
 
