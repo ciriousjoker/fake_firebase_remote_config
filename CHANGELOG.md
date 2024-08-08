@@ -1,3 +1,10 @@
+## 2.1.0
+
+- Added compatibility for `firebase_remote_config: 5.0.0`
+- Some general maintenance
+- CI: Fix test.yml
+- CI: Add autopublishing
+
 ## 2.0.0
 
 - Updated for `firebase_remote_config: 4.2.5`
