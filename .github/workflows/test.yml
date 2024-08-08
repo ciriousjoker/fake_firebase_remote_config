@@ -2,20 +2,31 @@ name: test
 
 on: [push]
 
+# Cancel previous builds by only allowing one concurrent build per ref.
+concurrency:
+  group: die-ringe-app-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test:
+    name: Test
     timeout-minutes: 15
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: subosito/flutter-action@v2
+      - name: Checkout (main)
+        uses: actions/checkout@v4
+
+      - name: Detect Flutter version
+        uses: kuhnroyal/flutter-fvm-config-action@v2
+        id: fvm-config-action
+
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2
         with:
-          flutter-version: "2.x"
-          channel: "stable"
+          flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
+          channel: ${{ steps.fvm-config-action.outputs.FLUTTER_CHANNEL }}
           cache: true
-          cache-key: flutter # optional, change this to force refresh cache
-          cache-path: ${{ runner.tool_cache }}/flutter # optional, change this to specify the cache path
 
       - name: Analyze
         run: flutter analyze --fatal-infos
@@ -23,4 +34,5 @@ jobs:
       - name: Get Packages
         run: flutter pub get
 
-      - run: flutter test --coverage --reporter expanded
+      - name: Test
+        run: flutter test --coverage --reporter expanded
