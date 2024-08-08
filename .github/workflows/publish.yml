@@ -1,0 +1,39 @@
+# Docs: https://dart.dev/tools/pub/automated-publishing
+name: Publish to pub.dev
+
+on:
+  push:
+    tags:
+      - "v[0-9]+.[0-9]+.[0-9]+*"
+
+jobs:
+  publish:
+    permissions:
+      id-token: write # Required for authentication using OIDC
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (main)
+        uses: actions/checkout@v4
+
+      - name: Detect Flutter version
+        uses: kuhnroyal/flutter-fvm-config-action@v2
+        id: fvm-config-action
+
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
+          channel: ${{ steps.fvm-config-action.outputs.FLUTTER_CHANNEL }}
+          cache: true
+
+      - name: Setup pub.dev credentials
+        uses: flutter-actions/setup-pubdev-credentials@v1
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Publish - dry run
+        run: dart pub publish --dry-run
+
+      - name: Publish
+        run: dart pub publish --force
