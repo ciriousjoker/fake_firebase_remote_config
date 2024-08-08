@@ -2,6 +2,11 @@ name: test
 
 on: [push]
 
+# Cancel previous builds by only allowing one concurrent build per ref.
+concurrency:
+  group: die-ringe-app-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test:
     name: Test
