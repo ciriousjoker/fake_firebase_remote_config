@@ -49,9 +49,10 @@ await tester.pumpWidget(
 | ---------------------- | --------------------------- |
 | >=0.9.0-dev.0 <4.0.0   | 1.0.x                       |
 | >=4.0.0 <5.0.0         | 2.0.x                       |
-| >=4.0.0 <5.0.0         | 2.1.x                       |
+| >=4.0.0 <5.4.0         | 2.1.x                       |
+| >=4.0.0 current        | 2.2.x                       |
 
-Last updated for `firebase_remote_config: 4.2.5`.
+Last updated for `firebase_remote_config: 5.4.1`.
 
 ## Features and bugs
 

@@ -5,7 +5,7 @@ library fake_firebase_remote_config;
 import 'dart:convert';
 
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_remote_config/firebase_remote_config.dart'; // ignore: import_of_legacy_library_into_null_safe
+import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/foundation.dart';
 
 /// Fake implementation of [FirebaseRemoteConfig] for testing.
@@ -50,30 +50,22 @@ class FakeRemoteConfig with ChangeNotifier implements FirebaseRemoteConfig {
 
   @override
   bool getBool(String key) {
-    return _data[key]?.asBool() ??
-        _defaults[key]?.asBool() ??
-        RemoteConfigValue.defaultValueForBool;
+    return _data[key]?.asBool() ?? _defaults[key]?.asBool() ?? RemoteConfigValue.defaultValueForBool;
   }
 
   @override
   double getDouble(String key) {
-    return _data[key]?.asDouble() ??
-        _defaults[key]?.asDouble() ??
-        RemoteConfigValue.defaultValueForDouble;
+    return _data[key]?.asDouble() ?? _defaults[key]?.asDouble() ?? RemoteConfigValue.defaultValueForDouble;
   }
 
   @override
   int getInt(String key) {
-    return _data[key]?.asInt() ??
-        _defaults[key]?.asInt() ??
-        RemoteConfigValue.defaultValueForInt;
+    return _data[key]?.asInt() ?? _defaults[key]?.asInt() ?? RemoteConfigValue.defaultValueForInt;
   }
 
   @override
   String getString(String key) {
-    return _data[key]?.asString() ??
-        _defaults[key]?.asString() ??
-        RemoteConfigValue.defaultValueForString;
+    return _data[key]?.asString() ?? _defaults[key]?.asString() ?? RemoteConfigValue.defaultValueForString;
   }
 
   @override
@@ -82,8 +74,7 @@ class FakeRemoteConfig with ChangeNotifier implements FirebaseRemoteConfig {
   }
 
   @override
-  RemoteConfigFetchStatus get lastFetchStatus =>
-      RemoteConfigFetchStatus.success;
+  RemoteConfigFetchStatus get lastFetchStatus => RemoteConfigFetchStatus.success;
 
   @override
   DateTime lastFetchTime = DateTime.fromMicrosecondsSinceEpoch(0);
@@ -124,4 +115,7 @@ class FakeRemoteConfig with ChangeNotifier implements FirebaseRemoteConfig {
     fetchTimeout: const Duration(seconds: 2),
     minimumFetchInterval: const Duration(seconds: 2),
   );
+
+  @override
+  Future<void> setCustomSignals(Map<String, Object?> customSignals) async {}
 }
