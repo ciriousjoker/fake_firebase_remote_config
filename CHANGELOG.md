@@ -1,3 +1,8 @@
+## 2.2.0
+
+- Added compatibility for `firebase_remote_config: 5.4.1`
+- Added example
+
 ## 2.1.0
 
 - Added compatibility for `firebase_remote_config: 5.0.0`
