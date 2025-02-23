@@ -1,0 +1,14 @@
+name: example
+description: "A new Flutter project."
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.7.0
+
+dependencies:
+  fake_firebase_remote_config:
+    path: ../
+  firebase_remote_config: ^5.4.1
+  flutter:
+    sdk: flutter
