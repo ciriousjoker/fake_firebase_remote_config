@@ -20,7 +20,7 @@ void main() {
     expect(config.getString("some_string"), "👋");
   });
 
-  test('Provides default values on missing keys', () async {
+  test('Provides default values on missing keys', () {
     final config = FakeRemoteConfig();
 
     config.setDefaults({
