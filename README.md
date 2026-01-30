@@ -40,7 +40,9 @@ await tester.pumpWidget(
 
 - `config.app` will throw
 - `config.pluginConstants` will throw
+- `config.onConfigUpdated` will throw
 - `config.getValue(String key)` will throw if the key is missing
+- `config.setCustomSignals` does nothing
 - Everything related to `config.settings` serve no purpose. Data is loaded manually.
 
 ## Compatibility table
